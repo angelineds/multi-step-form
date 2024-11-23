@@ -8,8 +8,8 @@ This is a solution to the [Multi-step form challenge on Frontend Mentor](https:/
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Built with](#built-with)
-  - [Links](#Links)
-- [Other](#Other)
+  - [Links](#links)
+- [Other](#other)
 
 ## Overview
 
@@ -46,8 +46,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://angelineds.github.io/multi-step-form](https://angelineds.github.io/multi-step-form/)
 
 
 ## Other
