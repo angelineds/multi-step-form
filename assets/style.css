@@ -1,0 +1,692 @@
+body {
+  font-family: 'Ubuntu';
+  display: flex;
+  margin: 0;
+  height: 100vh;
+}
+
+.sidebar {
+  flex: 1;
+  background-image: url('./images/bg-sidebar-desktop.svg');
+  background-repeat: no-repeat;
+  background-position-y: top;
+  margin: 1rem;
+  padding-top: 5%;
+  padding-left: 1.5rem;
+  user-select: none;
+}
+
+.sidebar-step {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  margin-left: 1rem;
+}
+
+.sidebar-info {
+  color: white; 
+  font-size: 15px; 
+  font-weight: 500; 
+  margin: 0; 
+  margin-top: 0.2rem;
+}
+
+.sidebar-title {
+  color: hsl(229, 24%, 87%); 
+  font-size: 13px; 
+  margin: 0;
+}
+
+.sidebar-step_button {
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0 0.7rem;
+  margin: 0;
+  outline: none;
+}
+
+.sidebar-step_button.active {
+  background-color: hsl(206, 94%, 87%);
+  border-color: hsl(206, 94%, 87%);
+  color: hsl(213, 96%, 18%);
+}
+
+.main-container {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  padding-top: 5%;
+  user-select: none;
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.main-container h1, .main-container p {
+  margin-bottom: 0;
+}
+
+.main-title {
+  color: hsl(213, 96%, 18%);
+}
+
+.main-desc {
+  color: hsl(231, 11%, 63%);
+  font-size: 16px;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+.form-input label {
+  color: hsl(213, 96%, 18%);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.inputData {
+  font-size: 16px;
+  padding: 0.8rem;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 7px;
+  font-weight: 500;
+  outline-color:  hsl(243, 62%, 47%);
+  color: hsl(213, 96%, 18%);
+}
+
+.inputData.warning {
+  border-color: hsl(354, 84%, 57%);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-input_desc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-warning, .plan-warning {
+  margin: 0;
+  font-weight: 500;
+  color: hsl(354, 84%, 57%);
+  display: none;
+}
+
+.form-warning.active, .plan-warning.active {
+  display: block;
+}
+
+.form-button {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 2rem;
+}
+
+#prev-page, #next-page, #confirm-page {
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 6px;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+}
+
+#prev-page {
+  background-color: white;
+  border: 1px solid transparent;
+  color: hsl(231, 11%, 63%);
+}
+
+#prev-page.off {
+  visibility: hidden;
+}
+
+#next-page.off {
+  display: none;
+}
+
+#prev-page:hover {
+  background-color: hsl(206, 32%, 86%);
+  color: hsl(214, 50%, 25%);
+}
+
+#next-page {
+  background-color: hsl(213, 96%, 18%);
+  border: 1px solid transparent;
+  color: white;
+}
+
+#next-page:hover {
+  background-color: hsl(213, 51%, 80%);
+  color: hsl(213, 96%, 18%);
+}
+
+#confirm-page {
+  display: none;
+}
+
+#confirm-page.on {
+  display: flex;
+  background-color: hsl(243, 62%, 47%);
+  color: white;
+  border-color: transparent;
+  margin-right: 1rem;
+}
+
+#confirm-page.on:hover {
+  background-color: hsl(242, 55%, 83%);
+  color: hsl(243, 62%, 47%);
+}
+
+.form-plan1 {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5%;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.plan-choice {
+  padding: 1.5rem;
+  padding-bottom: 1rem; 
+  width: 40%;
+  border: 2px solid hsl(229, 24%, 87%);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.addOn-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem;
+  border: 2px solid hsl(229, 24%, 87%);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.plan-choice.active, .addOn-item.active {
+  background-color: hsl(231, 100%, 99%);
+  border-color: hsl(243, 62%, 47%);
+}
+
+.plan-choice:hover, .addOn-item:hover {
+  border-color: hsl(243, 62%, 47%);
+}
+
+.plan-price, .plan-addOn, .addOn-item_desc p {
+  margin: 0.4rem 0;
+}
+
+.plan-name {
+  font-size: 19px;
+  color: hsl(213, 96%, 18%);
+  font-weight: 600;
+  margin-top: 4rem;
+}
+
+.plan-price {
+  color: hsl(240, 2%, 63%);
+  font-weight: 600;
+}
+
+.plan-addOn {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  display: none;
+}
+
+.icon-plan {
+  width: 55px; 
+  height: 55px;
+}
+
+.form-plan2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  padding: 1rem 0;
+  background-color: hsl(217, 100%, 97%);
+}
+
+.plan2-duration {
+  margin: 0;
+  font-weight: 500;
+  color: hsl(231, 11%, 63%);
+}
+
+.plan2-duration.active {
+  color: hsl(213, 96%, 18%);
+}
+
+.checkbox-and-desc {
+  display: flex; 
+  flex-direction: row; 
+  gap: 1rem;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: hsl(213, 96%, 18%);
+  border-radius: 24px;
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 17px;
+  width: 17px;
+  left: 5px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.toggle-switch input:checked + .slider::before {
+  transform: translateX(23px);
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+.addOn-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 2px solid hsl(229, 24%, 87%);
+  border-radius: 3px;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  border: 2px solid hsl(243, 62%, 47%);
+}
+
+.addOn-checkbox:checked ~ .checkmark {
+  background-color: hsl(243, 62%, 47%);
+  border-color: transparent;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.addOn-checkbox:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.addOn-item_title {
+  color: hsl(213, 96%, 18%); 
+  font-weight: 500; 
+  font-size: 17px;
+}
+
+.addOn-item_price {
+  color: hsl(240, 2%, 63%); 
+  font-weight: 400;
+}
+
+.confirm-container {
+  background-color: hsl(231, 100%, 98%);
+  padding: 2rem;
+  padding-top: 0.5rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+.confirm-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid hsl(229, 24%, 87%);
+}
+
+.confirm-head_title, .confirm-head_price {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.confirm-head_price {
+  font-weight: 600;
+}
+
+.confirm-head_btn {
+  text-decoration: underline;
+  margin-top: 0.2rem;
+  color: hsl(231, 11%, 63%);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.confirm-head_btn:hover {
+  color: hsl(230, 3%, 38%);
+}
+
+.confirm-item.on , .confirm-total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.confirm-item {
+  display: none;
+  margin: 0.5rem 0;
+}
+
+.confirm-item_text, .confirm-total_text {
+  color: hsl(231, 11%, 63%);
+  font-weight: 500;
+}
+
+.confirm-item_price {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+
+.confirm-total {
+  padding: 0 1rem;
+  font-size: 17px;
+}
+
+.confirm-total_price {
+  color: hsl(243, 62%, 47%);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#form-step5 {
+  justify-content: center;
+  align-items: center;
+  margin-top: 7rem;
+  display: none;
+}
+
+.close-greet {
+  text-align: center; 
+  margin: 1rem 5rem; 
+  line-height: 150%; 
+  color: hsl(231, 11%, 63%);
+}
+
+@media screen and (max-width: 1100px) {
+  .form-step, .form-button {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar-info {
+    font-size: 13px;
+  }
+
+  .sidebar-title {
+    font-size: 11px;
+  }
+
+  .main-title {
+    font-size: 28px;
+  }
+
+  .main-desc {
+    font-size: 14px;
+  }
+
+  .form-plan1 {
+    gap: 1rem;
+  }
+
+  .plan-choice {
+    padding: 1rem;
+  }
+
+  .plan-name {
+    font-size: 17px;
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    flex: 3;
+  }
+
+  .main-container {
+    flex: 17;
+  }
+
+  .sidebar-step_desc {
+    display: none;
+  }
+
+  .sidebar-step_button {
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .sidebar {
+    padding-left: 0.5rem;
+  }
+
+  .sidebar-step_button {
+    padding: 0.4rem 0.7rem;
+  }
+
+  .main-title {
+    font-size: 24px;
+  }
+
+  .main-desc, .plan-price, .plan-addOn,
+  .confirm-head_btn {
+    font-size: 12px;
+  }
+
+  .form-input label, .plan-name, .plan2-duration,
+  .addOn-item_desc, .checkbox-container, .confirm-head_title, 
+  .confirm-head_price, confirm-total_text {
+    font-size: 14px;
+  }
+
+  .addOn-item_title, .confirm-total_price {
+    font-size: 15px;
+  }
+
+  .inputData {
+    padding: 0.4rem;
+  }
+
+  .form-warning, .plan-warning, .inputData,
+  .confirm-item_text, .confirm-item_price {
+    font-size: 13px;
+  }
+
+  .icon-plan {
+    width: 40px;
+    height: 40px;
+  }
+
+  .form-plan2 {
+    padding: 0.5rem 0;
+  }
+
+  .checkmark {
+    height: 15px;
+    width: 15px;
+  }
+
+  .checkbox-and-desc {
+    gap: 0.5rem;
+  }
+
+  .checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 3px;
+    height: 8px;
+  }
+
+  .close-greet {
+    margin: 1rem 1rem;
+    font-size: 14px;
+  }
+
+  #prev-page, #next-page, #confirm-page {
+    font-size: 13px;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .sidebar {
+    padding-left: 0;
+  }
+
+  .sidebar-step {
+    margin-left: 0.8rem;
+  }
+
+  .sidebar-step_button {
+    padding: 0.2rem 0.5rem;
+    font-size: 14px;
+  }
+
+  .form-plan1 {
+    gap: 0.5rem;
+  }
+
+  .plan-name, .addOn-item_title, .addOn-price {
+    font-size: 12px;
+  }
+
+  .addOn-item_desc {
+    font-size: 11px;
+  }
+
+  .plan-addOn {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  body {
+    display: block;
+    background-image: url('./images/bg-sidebar-mobile.svg');
+    margin: 0;
+    padding: 0;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-color: hsl(217, 100%, 97%);
+  }
+
+  .sidebar {
+    background-image: none;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .sidebar-step_button {
+    padding: 0.6rem 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3%;
+  }
+
+  .form-step {
+    width: 80%;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px 5px hsla(229, 24%, 87%, 0.459);
+  }
+
+  .form-button {
+    top: 94%;
+    position: absolute;
+    margin: 0;
+    background-color: white;
+    padding: 0.8rem 1rem;
+  }
+}
