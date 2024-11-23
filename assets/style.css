@@ -3,25 +3,44 @@ body {
   display: flex;
   margin: 0;
   height: 100vh;
+  background-color: hsl(217, 100%, 97%);
+  justify-content: center;
+  align-items: center;
 }
 
 .sidebar {
-  flex: 1;
   background-image: url('./images/bg-sidebar-desktop.svg');
   background-repeat: no-repeat;
-  background-position-y: top;
-  margin: 1rem;
-  padding-top: 5%;
-  padding-left: 1.5rem;
+  background-position: center;
+  height: 600px;
+  width: 300px;
+  padding: 0.3rem;
   user-select: none;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 1px 2px 2px hsl(229, 24%, 87%);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  width: 600px;
+  padding: 0.3rem 2rem;
+  user-select: none;
+  background-color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 1px 2px 2px hsl(229, 24%, 87%);
 }
 
 .sidebar-step {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  margin-bottom: 1.5rem;
-  margin-left: 1rem;
+  margin-top: 45px;
+  margin-left: 40px;
 }
 
 .sidebar-info {
@@ -56,18 +75,9 @@ body {
   color: hsl(213, 96%, 18%);
 }
 
-.main-container {
-  display: flex;
-  flex: 3;
-  flex-direction: column;
-  padding-top: 5%;
-  user-select: none;
-}
-
 .form-step {
   display: flex;
   flex-direction: column;
-  width: 80%;
   display: none;
 }
 
@@ -143,7 +153,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .form-button {
   display: flex;
   justify-content: space-between;
-  width: 80%;
   margin-top: 2rem;
 }
 
@@ -484,27 +493,15 @@ input[type="number"]::-webkit-outer-spin-button {
   color: hsl(231, 11%, 63%);
 }
 
-@media screen and (max-width: 1100px) {
-  .form-step, .form-button {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .sidebar-info {
-    font-size: 13px;
+@media screen and (max-width: 1024px) {
+  .main-container {
+    width: 400px;
+    box-shadow: 1px 2px 1px hsl(229, 24%, 87%);
   }
 
-  .sidebar-title {
-    font-size: 11px;
-  }
-
-  .main-title {
-    font-size: 28px;
-  }
-
-  .main-desc {
-    font-size: 14px;
+  .sidebar-step {
+    margin-top: 45px;
+    margin-left: 55px;
   }
 
   .form-plan1 {
@@ -515,45 +512,50 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 1rem;
   }
 
-  .plan-name {
-    font-size: 17px;
-    margin-top: 2rem;
+  .plan-addOn {
+    font-size: 13px;
+  }
+
+  .close-greet {
+    margin: 1rem 2rem;
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
   .sidebar {
-    flex: 3;
+    width: 100px;
+    padding: 0;
+    box-shadow: 1px 2px 1px hsl(229, 24%, 87%);
   }
 
-  .main-container {
-    flex: 17;
+  .sidebar-step {
+    margin-top: 35px;
+    margin-left: 32px;
+  }
+
+  .sidebar-step_button {
+    padding: 0.6rem 0.9rem;
   }
 
   .sidebar-step_desc {
     display: none;
   }
 
-  .sidebar-step_button {
-    padding: 0.5rem 0.8rem;
-  }
-}
-
-@media screen and (max-width: 570px) {
-  .sidebar {
-    padding-left: 0.5rem;
-  }
-
-  .sidebar-step_button {
-    padding: 0.4rem 0.7rem;
+  .main-container {
+    padding: 0 2rem;
   }
 
   .main-title {
-    font-size: 24px;
+    margin-top: 2rem;
+    font-size: 28px;
   }
 
-  .main-desc, .plan-price, .plan-addOn,
-  .confirm-head_btn {
+  .main-desc {
+    margin: 0.5rem 0;
+    font-size: 14px;
+  }
+
+  .plan-price, .plan-addOn, .confirm-head_btn {
     font-size: 12px;
   }
 
@@ -601,77 +603,93 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 8px;
   }
 
-  .close-greet {
-    margin: 1rem 1rem;
-    font-size: 14px;
-  }
-
   #prev-page, #next-page, #confirm-page {
     font-size: 13px;
     padding: 0.5rem 1rem;
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
+  .main-container {
+    width: 300px;
+  }
+
   .sidebar {
-    padding-left: 0;
+    width: 50px;
   }
 
   .sidebar-step {
-    margin-left: 0.8rem;
+    margin-left: 10px;
   }
 
   .sidebar-step_button {
-    padding: 0.2rem 0.5rem;
-    font-size: 14px;
+    padding: 0.4rem 0.6rem;
   }
 
-  .form-plan1 {
-    gap: 0.5rem;
-  }
-
-  .plan-name, .addOn-item_title, .addOn-price {
+  .plan-name {
     font-size: 12px;
-  }
-
-  .addOn-item_desc {
-    font-size: 11px;
+    margin-top: 2rem;
   }
 
   .plan-addOn {
     font-size: 8px;
   }
+
+  .addOn-item_title, .addOn-price, .close-greet {
+    font-size: 11px;
+  }
+
+  .addOn-item_desc {
+    font-size: 10px;
+  }
+
+  .checkmark {
+    top: 10px;
+  }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 450px) {
   body {
-    display: block;
     background-image: url('./images/bg-sidebar-mobile.svg');
-    margin: 0;
-    padding: 0;
     background-position: top;
     background-repeat: no-repeat;
     background-color: hsl(217, 100%, 97%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
   }
 
   .sidebar {
-    background-image: none;
     display: flex;
     flex-direction: row;
+    background-image: none;
+    background-color: transparent;
     gap: 0.5rem;
     justify-content: center;
+    width: fit-content;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .sidebar-step {
+    margin-top: 50px;
   }
 
   .sidebar-step_button {
     padding: 0.6rem 0.8rem;
-    margin-top: 1rem;
   }
 
   .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 3%;
+    background-color: none;
+    box-shadow: none;
+    height: fit-content;
+    background-color: transparent;
+    width: fit-content;
+    padding: 0;
   }
 
   .form-step {
@@ -682,11 +700,24 @@ input[type="number"]::-webkit-outer-spin-button {
     box-shadow: 0 2px 10px 5px hsla(229, 24%, 87%, 0.459);
   }
 
-  .form-button {
-    top: 94%;
-    position: absolute;
+  .main-title {
     margin: 0;
+  }
+
+  .form-plan1 {
+    gap: 0.3rem;
+  }
+
+  .form-button {
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    margin: 0;
+    padding: 10px 0;
     background-color: white;
-    padding: 0.8rem 1rem;
+  }
+
+  #prev-page, #next-page, #confirm-page {
+    margin: 0 10px;
   }
 }
